@@ -1,6 +1,7 @@
 package mima.anitab.myposts
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,12 +15,17 @@ class PostRvAdapter (var postList: List<Post>):RecyclerView.Adapter<PostViewHold
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         var currentPost = postList.get(position)
-//        with(holder.binding){
         val postBinding=holder.binding
             postBinding.tvUserId.text = currentPost.userId.toString()
             postBinding.tvId.text = currentPost.id.toString()
             postBinding.tvTitle.text = currentPost.title
             postBinding.tvBody.text = currentPost.body
+        val context=holder.itemView.context
+        holder.binding.cvPost.setOnClickListener {
+            val intent = Intent(context, CommentsActivity::class.java)
+            intent.putExtra("POST_ID", currentPost.id)
+            context.startActivity(intent)
+        }
 
 
     }
@@ -30,6 +36,5 @@ class PostRvAdapter (var postList: List<Post>):RecyclerView.Adapter<PostViewHold
     }
 }
 class PostViewHolder(var binding: PostsListItemBinding):RecyclerView.ViewHolder(binding.root){
-
 }
 
