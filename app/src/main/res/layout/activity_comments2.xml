@@ -10,22 +10,23 @@
         android:id="@+id/tvPostTitle"
         android:layout_width="333dp"
         android:layout_height="44dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="42dp"
         android:textColor="#070000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarComments"
         tools:text="TextView" />
 
     <TextView
         android:id="@+id/tvPostPolly"
         android:layout_width="339dp"
         android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:textColor="#0D239A"
         android:textSize="20sp"
@@ -34,4 +35,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPostTitle"
         tools:text="TextView" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarComments"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="1dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comments"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvComments"
+        android:layout_width="409dp"
+        android:layout_height="524dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        tools:listitem="@layout/activity_comments2"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPostPolly" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
